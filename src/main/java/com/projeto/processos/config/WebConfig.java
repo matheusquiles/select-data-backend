@@ -11,7 +11,7 @@ public class WebConfig implements WebMvcConfigurer{
 	@Override
     public void addCorsMappings(@NonNull CorsRegistry registry) {
         registry.addMapping("/api/**")
-                .allowedOrigins("https://select-data-site-6427d5c68d55.herokuapp.com/") // URL do seu frontend
+                .allowedOrigins("https://select-data-site-6427d5c68d55.herokuapp.com") // URL do seu frontend
                 .allowedMethods("GET", "POST", "PUT", "DELETE")
                 .allowedHeaders("*")
                 .allowCredentials(true);
