@@ -13,6 +13,7 @@ import com.projeto.processos.model.Processo;
 import com.projeto.processos.service.ProcessoService;
 import com.projeto.processos.service.impl.ProcessoServiceImp;
 
+
 @RestController
 @RequestMapping("api/processo")
 public class ProcessoController extends BaseControllerImpl<Processo, Integer> {
@@ -31,28 +32,36 @@ public class ProcessoController extends BaseControllerImpl<Processo, Integer> {
 
 	@Override
 	public Boolean save(Processo entity) {
-		
-		if(service.validaProcessoExistente(entity.getNumeroProcesso())) {
+
+		if (service.validaProcessoExistente(entity.getNumeroProcesso())) {
 			System.err.println("Já existe um processo de número: " + entity.getNumeroProcesso());
-	        return false;
+			return false;
 		}
-		
+
 		try {
-	        if (service.salvarProcesso(entity)) {
-	            service.salvarPedido(entity);
-	            return true;
-	        } else {
-	            return false;
-	        }
-	    } catch (Exception e) {
-	        System.err.println("Erro ao salvar processo: " + e.getMessage());
-	        return false;
-	    }
+			if (service.salvarProcesso(entity)) {
+				service.salvarPedido(entity);
+				return true;
+			} else {
+				return false;
+			}
+		} catch (Exception e) {
+			System.err.println("Erro ao salvar processo: " + e.getMessage());
+			return false;
+		}
 	}
 
-	 @GetMapping("/buscarProcesso/{processo}")
-	 public ProcessoDTO getByProcesso(@PathVariable String processo) {
-		 return service.findDTO(processo);
-		 
-	 }
+	@GetMapping("/buscarProcesso/{processo}")
+	public ProcessoDTO getByProcesso(@PathVariable String processo) {
+		ProcessoDTO p = new ProcessoDTO();
+		try {
+			p = service.findDTO(processo);
+			return p;
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+
+	}
 }

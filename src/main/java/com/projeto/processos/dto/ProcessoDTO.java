@@ -6,13 +6,13 @@ import java.util.List;
 public class ProcessoDTO {
 	
 	private int idProcesso;
-	private String escritorio;
-	private String natureza;
-	private String tipoAcao;
-	private String funcao;
-	private String tribunal;
-	private String faseProcessual;
-	private String vara;
+	private Integer escritorio;
+	private Integer natureza;
+	private Integer tipoAcao;
+	private Integer funcao;
+	private Integer tribunal;
+	private Integer faseProcessual;
+	private Integer vara;
 	
 	private Date admissao;
 	private Date demissao;
@@ -42,8 +42,11 @@ public class ProcessoDTO {
 	public ProcessoDTO() {
 	}
 
-	public ProcessoDTO(int idProcesso, String escritorio, String natureza, String tipoAcao, String funcao,
-			String tribunal, String faseProcessual, String vara, Date admissao, Date demissao, String numeroProcesso,
+	
+	
+
+	public ProcessoDTO(int idProcesso, Integer escritorio, Integer natureza, Integer tipoAcao, Integer funcao,
+			Integer tribunal, Integer faseProcessual, Integer vara, Date admissao, Date demissao, String numeroProcesso,
 			String estado, String cidadeOrigem, String reu, Date dataAjuizamento, String ultimosAndamentosProcessuais,
 			Double valorCausa, String autor, Double valorPerdaEstimado, String reclamada, String classificacaoRisco,
 			Double depositoRecursalOrdinario, Date dataDepositoRecursalOrdinario, Double depositoRecursalRevista,
@@ -81,12 +84,12 @@ public class ProcessoDTO {
 		this.dataBloqueioJudicial = dataBloqueioJudicial;
 		this.pedido = pedido;
 	}
-	
-	
-	
 
-	public ProcessoDTO(int idProcesso, String escritorio, String natureza, String tipoAcao, String funcao,
-			String tribunal, String faseProcessual, String vara, Date admissao, Date demissao, String numeroProcesso,
+
+
+
+	public ProcessoDTO(int idProcesso, Integer escritorio, Integer natureza, Integer tipoAcao, Integer funcao,
+			Integer tribunal, Integer faseProcessual, Integer vara, Date admissao, Date demissao, String numeroProcesso,
 			String estado, String cidadeOrigem, String reu, Date dataAjuizamento, String ultimosAndamentosProcessuais,
 			Double valorCausa, String autor, Double valorPerdaEstimado, String reclamada, String classificacaoRisco,
 			Double depositoRecursalOrdinario, Date dataDepositoRecursalOrdinario, Double depositoRecursalRevista,
@@ -132,61 +135,106 @@ public class ProcessoDTO {
 		this.idProcesso = idProcesso;
 	}
 
-	public String getEscritorio() {
+	
+	
+
+	public Integer getEscritorio() {
 		return escritorio;
 	}
 
-	public void setEscritorio(String escritorio) {
+
+
+
+	public void setEscritorio(Integer escritorio) {
 		this.escritorio = escritorio;
 	}
 
-	public String getNatureza() {
+
+
+
+	public Integer getNatureza() {
 		return natureza;
 	}
 
-	public void setNatureza(String natureza) {
+
+
+
+	public void setNatureza(Integer natureza) {
 		this.natureza = natureza;
 	}
 
-	public String getTipoAcao() {
+
+
+
+	public Integer getTipoAcao() {
 		return tipoAcao;
 	}
 
-	public void setTipoAcao(String tipoAcao) {
+
+
+
+	public void setTipoAcao(Integer tipoAcao) {
 		this.tipoAcao = tipoAcao;
 	}
 
-	public String getFuncao() {
+
+
+
+	public Integer getFuncao() {
 		return funcao;
 	}
 
-	public void setFuncao(String funcao) {
+
+
+
+	public void setFuncao(Integer funcao) {
 		this.funcao = funcao;
 	}
 
-	public String getTribunal() {
+
+
+
+	public Integer getTribunal() {
 		return tribunal;
 	}
 
-	public void setTribunal(String tribunal) {
+
+
+
+	public void setTribunal(Integer tribunal) {
 		this.tribunal = tribunal;
 	}
 
-	public String getFaseProcessual() {
+
+
+
+	public Integer getFaseProcessual() {
 		return faseProcessual;
 	}
 
-	public void setFaseProcessual(String faseProcessual) {
+
+
+
+	public void setFaseProcessual(Integer faseProcessual) {
 		this.faseProcessual = faseProcessual;
 	}
 
-	public String getVara() {
+
+
+
+	public Integer getVara() {
 		return vara;
 	}
 
-	public void setVara(String vara) {
+
+
+
+	public void setVara(Integer vara) {
 		this.vara = vara;
 	}
+
+
+
 
 	public Date getAdmissao() {
 		return admissao;

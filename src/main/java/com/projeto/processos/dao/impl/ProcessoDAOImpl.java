@@ -56,8 +56,10 @@ public class ProcessoDAOImpl extends BaseDAOImpl<Processo, Integer> implements P
 		ProcessoDTO dto = currentSession.createQuery(hql.toString(), ProcessoDTO.class)
 					.setParameter("processo", processo)
 					.uniqueResult();
-
-		dto.setPedido(pedidoDAO.getDTO(dto.getIdProcesso()));
+		
+		if(dto != null) {
+			dto.setPedido(pedidoDAO.getDTO(dto.getIdProcesso()));
+		}
 
 		return dto;
 	}
@@ -66,13 +68,13 @@ public class ProcessoDAOImpl extends BaseDAOImpl<Processo, Integer> implements P
 		StringBuilder hql = new StringBuilder();
 		hql.append("select new com.projeto.processos.dto.ProcessoDTO(");
 		hql.append(" pro.idProcesso idProcesso ");
-		hql.append(", esc.nomeEscritorio escritorio ");
-		hql.append(", nat.natureza natureza ");
-		hql.append(", tip.tipoAcao tipoAcao ");
-		hql.append(", fun.funcao funcao ");
-		hql.append(", tri.tribunalOrigem tribunal ");
-		hql.append(", fas.faseProcessual faseProcessual ");
-		hql.append(", var.vara vara ");
+		hql.append(", esc.idEscritorio escritorio ");
+		hql.append(", nat.idNatureza natureza ");
+		hql.append(", tip.idTipoAcao tipoAcao ");
+		hql.append(", fun.idFuncao funcao ");
+		hql.append(", tri.idTribunal tribunal ");
+		hql.append(", fas.idFaseProcessual faseProcessual ");
+		hql.append(", var.idVara vara ");
 		hql.append(", pro.admissao ");
 		hql.append(", pro.demissao ");
 		hql.append(", pro.numeroProcesso ");
