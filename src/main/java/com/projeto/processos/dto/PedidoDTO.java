@@ -4,7 +4,7 @@ public class PedidoDTO {
 	
 	private Integer idPedido;
 	private String processo;
-	private String tipoPedido;
+	private String descricao;
 	private Boolean pedidoGanhoPrimeiraInstancia;
 	private Boolean pedidoGanhoSegundaInstancia;
 	private Boolean pedidoGanhoTerceiraInstancia;
@@ -12,12 +12,12 @@ public class PedidoDTO {
 	public PedidoDTO() {
 	}
 
-	public PedidoDTO(Integer idPedido, String processo, String tipoPedido, Boolean pedidoGanhoPrimeiraInstancia,
+	public PedidoDTO(Integer idPedido, String processo, String descricao, Boolean pedidoGanhoPrimeiraInstancia,
 			Boolean pedidoGanhoSegundaInstancia, Boolean pedidoGanhoTerceiraInstancia) {
 		super();
 		this.idPedido = idPedido;
 		this.processo = processo;
-		this.tipoPedido = tipoPedido;
+		this.descricao = descricao;
 		this.pedidoGanhoPrimeiraInstancia = pedidoGanhoPrimeiraInstancia;
 		this.pedidoGanhoSegundaInstancia = pedidoGanhoSegundaInstancia;
 		this.pedidoGanhoTerceiraInstancia = pedidoGanhoTerceiraInstancia;
@@ -39,12 +39,12 @@ public class PedidoDTO {
 		this.processo = processo;
 	}
 
-	public String getTipoPedido() {
-		return tipoPedido;
+	public String getDescricao() {
+		return descricao;
 	}
 
-	public void setTipoPedido(String tipoPedido) {
-		this.tipoPedido = tipoPedido;
+	public void setDescricao(String tipoPedido) {
+		this.descricao = tipoPedido;
 	}
 
 	public Boolean getPedidoGanhoPrimeiraInstancia() {

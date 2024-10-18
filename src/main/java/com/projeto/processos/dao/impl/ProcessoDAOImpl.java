@@ -51,7 +51,7 @@ public class ProcessoDAOImpl extends BaseDAOImpl<Processo, Integer> implements P
 		Session currentSession = entityManager.unwrap(Session.class);
 		StringBuilder hql = searchDTO();
 		
-		hql.append(" and pro.numeroProcesso = :processo ");
+		hql.append(" and LOWER(pro.numeroProcesso) = LOWER(:processo) ");
 		
 		ProcessoDTO dto = currentSession.createQuery(hql.toString(), ProcessoDTO.class)
 					.setParameter("processo", processo)

@@ -59,7 +59,7 @@ public class PedidoDAOImp extends BaseDAOImpl<Pedido, Integer> implements Pedido
 		hql.append("select new com.projeto.processos.dto.PedidoDTO(");
 		hql.append(" ped.idPedido idPedido ");
 		hql.append(", pro.numeroProcesso processo ");
-		hql.append(", tpe.descricao tipoPedido ");
+		hql.append(", tpe.descricao descricao ");
 		hql.append(", ped.pedidoGanhoPrimeiraInstancia ");
 		hql.append(", ped.pedidoGanhoSegundaInstancia ");
 		hql.append(", ped.pedidoGanhoTerceiraInstancia) ");
