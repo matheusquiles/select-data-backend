@@ -58,6 +58,7 @@ public class PedidoDAOImp extends BaseDAOImpl<Pedido, Integer> implements Pedido
 		StringBuilder hql = new StringBuilder();
 		hql.append("select new com.projeto.processos.dto.PedidoDTO(");
 		hql.append(" ped.idPedido idPedido ");
+		hql.append(", tpe.idTipoPedido idTipoPedido ");
 		hql.append(", pro.numeroProcesso processo ");
 		hql.append(", tpe.descricao descricao ");
 		hql.append(", ped.pedidoGanhoPrimeiraInstancia ");

@@ -18,7 +18,7 @@ public class ProcessoDTO {
 	private Date demissao;
 	private String numeroProcesso;
 	private String estado;
-	private String cidadeOrigem;
+	private String cidade;
 	private String reu;
 	private Date dataAjuizamento;
 	private String ultimosAndamentosProcessuais;
@@ -65,7 +65,7 @@ public class ProcessoDTO {
 		this.demissao = demissao;
 		this.numeroProcesso = numeroProcesso;
 		this.estado = estado;
-		this.cidadeOrigem = cidadeOrigem;
+		this.cidade = cidadeOrigem;
 		this.reu = reu;
 		this.dataAjuizamento = dataAjuizamento;
 		this.ultimosAndamentosProcessuais = ultimosAndamentosProcessuais;
@@ -108,7 +108,7 @@ public class ProcessoDTO {
 		this.demissao = demissao;
 		this.numeroProcesso = numeroProcesso;
 		this.estado = estado;
-		this.cidadeOrigem = cidadeOrigem;
+		this.cidade = cidadeOrigem;
 		this.reu = reu;
 		this.dataAjuizamento = dataAjuizamento;
 		this.ultimosAndamentosProcessuais = ultimosAndamentosProcessuais;
@@ -268,12 +268,12 @@ public class ProcessoDTO {
 		this.estado = estado;
 	}
 
-	public String getCidadeOrigem() {
-		return cidadeOrigem;
+	public String getCidade() {
+		return cidade;
 	}
 
-	public void setCidadeOrigem(String cidadeOrigem) {
-		this.cidadeOrigem = cidadeOrigem;
+	public void setCidade(String cidadeOrigem) {
+		this.cidade = cidadeOrigem;
 	}
 
 	public String getReu() {
