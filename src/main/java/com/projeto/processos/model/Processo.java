@@ -1,6 +1,7 @@
 package com.projeto.processos.model;
 
 import java.io.Serializable;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
@@ -548,7 +549,7 @@ public class Processo implements Serializable{
 
 
 	public List<Pedido> getPedido() {
-		return pedido;
+		return pedido == null ? Collections.emptyList() : pedido ;
 	}
 
 

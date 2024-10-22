@@ -157,34 +157,35 @@ public class ProcessoServiceImp extends BaseServiceImpl<Processo, Integer> imple
 	    // Nova lista de pedidos enviada
 	    List<Pedido> novosPedidos = processo.getPedido();
 
-	    // Verifica os pedidos que devem ser removidos
-	    for (Pedido pedidoAtual : pedidosAtuais) {
-	        boolean pedidoExiste = novosPedidos.stream()
-	            .anyMatch(p -> p.getIdPedido() != null && p.getIdPedido().equals(pedidoAtual.getIdPedido()));
-
-	        if (!pedidoExiste) {
-	            // Remove o pedido atual se ele não estiver na nova lista
-	            pedidoDAO.delete(pedidoAtual.getIdPedido());
-	        }
-	    }
-
-	    // Verifica os pedidos que precisam ser adicionados ou atualizados
-	    for (Pedido novoPedido : novosPedidos) {
-	        Pedido pedidoExistente = pedidosAtuais.stream()
-	            .filter(p -> (p.getIdPedido() != null && p.getIdPedido().equals(novoPedido.getIdPedido())) ||
-	                         (p.getTipoPedido().equals(novoPedido.getTipoPedido()) && 
-	                          p.getProcesso().getIdProcesso().equals(processoExistente.getIdProcesso())))
-	            .findFirst().orElse(null);
-
-	        if (pedidoExistente != null) {
-	            // Atualiza os campos do pedido existente
+	    
+	    if(!novosPedidos.isEmpty()) {
+	    	for (Pedido pedidoAtual : pedidosAtuais) {
+	    		boolean pedidoExiste = novosPedidos.stream()
+	    				.anyMatch(p -> p.getIdPedido() != null && p.getIdPedido().equals(pedidoAtual.getIdPedido()));
+	    		
+	    		if (!pedidoExiste) {
+	    			// Remove o pedido atual se ele não estiver na nova lista
+	    			pedidoDAO.delete(pedidoAtual.getIdPedido());
+	    		}
+	    	}
+	    	
+	    	for (Pedido novoPedido : novosPedidos) {
+	    		Pedido pedidoExistente = pedidosAtuais.stream()
+	    				.filter(p -> (p.getIdPedido() != null && p.getIdPedido().equals(novoPedido.getIdPedido())) ||
+	    						(p.getTipoPedido().equals(novoPedido.getTipoPedido()) && 
+	    								p.getProcesso().getIdProcesso().equals(processoExistente.getIdProcesso())))
+	    				.findFirst().orElse(null);
+	    		
+	    		if (pedidoExistente != null) {
+	    			// Atualiza os campos do pedido existente
 //	            pedidoExistente.setCamposPedido(novoPedido.getCamposPedido());
-	            pedidoDAO.save(pedidoExistente);
-	        } else {
-	            // Se for um novo pedido, adicione-o ao processo
-	            novoPedido.setProcesso(processoExistente); // Relaciona o pedido ao processo
-	            pedidoDAO.save(novoPedido);
-	        }
+	    			pedidoDAO.save(pedidoExistente);
+	    		} else {
+	    			// Se for um novo pedido, adicione-o ao processo
+	    			novoPedido.setProcesso(processoExistente); // Relaciona o pedido ao processo
+	    			pedidoDAO.save(novoPedido);
+	    		}
+	    	}
 	    }
 
 	    try {
